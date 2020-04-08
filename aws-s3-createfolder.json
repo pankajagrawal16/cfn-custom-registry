@@ -1,0 +1,54 @@
+{
+    "typeName": "AWS::S3::CreateFolder",
+    "description": "Creates folders inside S3 buckets",
+    "properties": {
+        "BucketName": {
+            "description": "Name of bucket inside which folders needs to be created",
+            "type": "string",
+            "pattern": "(?=^.{3,63}$)(?!^(\\d+\\.)+\\d+$)(^(([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])\\.)*([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])$)\n"
+        },
+        "Folders": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "BucketName",
+        "Folders"
+    ],
+    "primaryIdentifier": [
+        "/properties/BucketName"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+                "s3:ListBucket",
+                "s3:PutObject"
+            ]
+        },
+        "read": {
+            "permissions": [
+                "s3:ListBucket"
+            ]
+        },
+        "update": {
+            "permissions": [
+                "s3:DeleteObject",
+                "s3:PutObject"
+            ]
+        },
+        "delete": {
+            "permissions": [
+                "s3:DeleteObject"
+            ]
+        },
+        "list": {
+            "permissions": [
+                "s3:ListBucket"
+            ]
+        }
+    }
+}

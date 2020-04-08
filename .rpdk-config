@@ -1,0 +1,15 @@
+{
+    "typeName": "AWS::S3::CreateFolder",
+    "language": "java",
+    "runtime": "java8",
+    "entrypoint": "software.amazon.s3.createfolder.HandlerWrapper::handleRequest",
+    "testEntrypoint": "software.amazon.s3.createfolder.HandlerWrapper::testEntrypoint",
+    "settings": {
+        "namespace": [
+            "software",
+            "amazon",
+            "s3",
+            "createfolder"
+        ]
+    }
+}
